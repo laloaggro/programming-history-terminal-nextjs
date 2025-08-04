@@ -1,17 +1,13 @@
-# Terminal de Historia de la Programación - Next.js
+# Terminal de Historia de la Programación
 
-Este es un proyecto de reestructuración del sitio "Terminal de Historia de la Programación" utilizando Next.js, un framework de React que ofrece renderizado del lado del servidor, generación de sitios estáticos y muchas otras características avanzadas.
+Esta es una aplicación web interactiva que simula una terminal para explorar la historia de la programación. La aplicación está construida con Next.js y desplegada en GitHub Pages.
 
-## Características del proyecto
+## Características
 
-- Basado en Next.js (React Framework)
-- Compatible con GitHub Pages
-- Estructura modular con componentes React
-- Modo oscuro/claro
-- Catálogo de ideas de proyectos en barra lateral
-- Terminal interactiva con comandos
-- Efecto de fondo Matrix
-- Diseño responsivo
+- Interfaz de terminal interactiva
+- Comandos personalizados para explorar la historia de la programación
+- Diseño responsive
+- Totalmente funcional en navegadores modernos
 
 ## Tecnologías utilizadas
 
@@ -69,13 +65,32 @@ programming-history-terminal-nextjs/
 
 3. Para configurar GitHub Pages, ve a la configuración de tu repositorio en GitHub, selecciona la rama `gh-pages` o la carpeta `out` como fuente para GitHub Pages.
 
+4. Si estás utilizando un dominio personalizado (como `laloaggro.github.io`), asegúrate de agregar un archivo `CNAME` en la carpeta `public/` con tu dominio personalizado.
+
+## Configuración específica para GitHub Pages
+
+El archivo `next.config.js` está configurado para funcionar correctamente con GitHub Pages:
+
+- `output: 'export'` habilita la exportación estática
+- `images: { unoptimized: true }` desactiva la optimización de imágenes incompatible con GitHub Pages
+- Configuración de `assetPrefix` y `basePath` para entornos de GitHub Actions
+
 ## Comandos disponibles
 
 - `npm run dev` - Inicia el servidor de desarrollo
 - `npm run build` - Construye la aplicación para producción
 - `npm run start` - Inicia el servidor de producción
 - `npm run export` - Exporta la aplicación como sitio estático
-- `npm run deploy` - Construye y exporta la aplicación (combinación de build y export)
+
+## Comandos de la terminal
+
+- `help` - Muestra la lista de comandos disponibles
+- `about` - Muestra información sobre la aplicación
+- `history` - Muestra la historia de la programación
+- `cls` o `clear` - Limpia la pantalla de la terminal
+- `echo` - Muestra el texto proporcionado
+- `date` - Muestra la fecha y hora actual
+- `exit` - Cierra la aplicación
 
 ## Personalización
 
