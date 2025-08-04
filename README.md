@@ -56,16 +56,60 @@ programming-history-terminal-nextjs/
 
 ## Despliegue en GitHub Pages
 
-1. Construir el proyecto:
+La aplicación está configurada para desplegarse automáticamente en GitHub Pages usando GitHub Actions.
+
+### Configuración del workflow
+
+El workflow de despliegue se encuentra en `.github/workflows/deploy.yml`. Este workflow:
+
+1. Se ejecuta en cada push a las ramas `main` o `master`
+2. Construye la aplicación usando `npm run build`
+3. Exporta la aplicación como sitio estático usando `npm run export`
+4. Despliega los archivos generados en la carpeta `out` a GitHub Pages
+
+### Configuración manual (opcional)
+
+Si prefieres desplegar manualmente:
+
+1. Construye la aplicación:
+   ```bash
+   npm run build
+   ```
+
+2. Exporta la aplicación como sitio estático:
    ```bash
    npm run export
    ```
 
-2. El contenido de la carpeta `out` puede ser desplegado directamente en GitHub Pages.
+3. El contenido de la carpeta `out` puede ser desplegado en cualquier servidor web estático, incluyendo GitHub Pages.
 
-3. Para configurar GitHub Pages, ve a la configuración de tu repositorio en GitHub, selecciona la rama `gh-pages` o la carpeta `out` como fuente para GitHub Pages.
+### Configuración del repositorio en GitHub
 
-4. Si estás utilizando un dominio personalizado (como `laloaggro.github.io`), asegúrate de agregar un archivo `CNAME` en la carpeta `public/` con tu dominio personalizado.
+Para poder desplegar en GitHub Pages, necesitas:
+
+1. Crear un nuevo repositorio en GitHub llamado `programming-history-terminal-nextjs`
+2. Configurar el remoto del repositorio local:
+   ```bash
+   git remote add origin https://github.com/TU_USUARIO/programming-history-terminal-nextjs.git
+   ```
+3. Empujar las ramas al repositorio remoto:
+   ```bash
+   git push -u origin master
+   git push -u origin gh-pages
+   ```
+4. En la configuración del repositorio en GitHub, selecciona la rama `gh-pages` como fuente para GitHub Pages
+
+### Autenticación con GitHub
+
+Para poder empujar los cambios al repositorio remoto, necesitarás autenticarte con GitHub. Puedes hacerlo de dos maneras:
+
+1. Usar un token de acceso personal:
+   ```bash
+   git remote add origin https://<TU_TOKEN>@github.com/TU_USUARIO/programming-history-terminal-nextjs.git
+   ```
+
+2. Configurar SSH keys (método recomendado):
+   - Sigue las instrucciones en [GitHub Docs - SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
 ## Configuración específica para GitHub Pages
 
